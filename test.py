@@ -69,6 +69,36 @@ disease_profiles = {
         "weight": 0.5,
         "allopathic": "ORS, Fluids, Electrolyte Rehydration",
         "homeopathic": "China, Veratrum Album"
+    },
+    "Sinusitis": {
+        "symptoms": ["Facial Pain", "Nasal Congestion", "Runny Nose", "Headache"],
+        "weight": 0.9,
+        "allopathic": "Decongestants, Nasal Sprays, Antibiotics",
+        "homeopathic": "Kali Bichromicum, Belladonna, Pulsatilla"
+    },
+    "Allergic Rhinitis": {
+        "symptoms": ["Sneezing", "Itchy Eyes", "Runny Nose", "Nasal Congestion"],
+        "weight": 0.8,
+        "allopathic": "Antihistamines, Nasal Corticosteroids",
+        "homeopathic": "Sabadilla, Allium Cepa, Natrum Mur"
+    },
+    "Acid Reflux": {
+        "symptoms": ["Heartburn", "Chest Pain", "Sore Throat", "Regurgitation"],
+        "weight": 0.9,
+        "allopathic": "Antacids, PPIs like Omeprazole",
+        "homeopathic": "Nux Vomica, Robinia, Iris Versicolor"
+    },
+    "UTI": {
+        "symptoms": ["Burning Urination", "Frequent Urge to Urinate", "Lower Abdominal Pain", "Cloudy Urine"],
+        "weight": 1.0,
+        "allopathic": "Antibiotics like Nitrofurantoin",
+        "homeopathic": "Cantharis, Apis Mellifica"
+    },
+    "Appendicitis": {
+        "symptoms": ["Abdominal Pain (lower right)", "Loss of Appetite", "Nausea", "Fever"],
+        "weight": 1.3,
+        "allopathic": "Surgical Removal, Painkillers, Antibiotics",
+        "homeopathic": "Belladonna, Bryonia"
     }
 }
 
@@ -99,7 +129,7 @@ if st.button("Run Diagnostic", use_container_width=True):
             match_count = len(set(selected_symptoms).intersection(set(profile["symptoms"])))
             total_possible = len(profile["symptoms"])
             if match_count < 2:
-                continue  # Skip diseases with less than 2 matching symptoms
+                continue
             raw_score = (match_count / total_possible) * profile["weight"]
             scores[disease] = raw_score
 
@@ -133,3 +163,6 @@ if st.button("Run Diagnostic", use_container_width=True):
 
             st.download_button("Download Diagnosis Report", report, file_name="diagnosis_report.txt")
 
+            # --- Disclaimer note at bottom ---
+            st.markdown("\n---")
+            st.caption("This is a preliminary prediction. Please consult a medical professional for a confirmed diagnosis.")
