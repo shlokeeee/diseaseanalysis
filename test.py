@@ -118,6 +118,35 @@ disease_profiles = {
         "allopathic": "Antispasmodics, Laxatives, Dietary Changes",
         "homeopathic": "Nux Vomica, Lycopodium, Colocynthis"
     }
+"Bronchitis": {
+        "symptoms": ["Cough", "Chest Pain", "Fatigue", "Shortness of Breath", "Wheezing"],
+        "weight": 1.0,
+        "allopathic": "Cough suppressants, Bronchodilators, Rest",
+        "homeopathic": "Antimonium Tart, Bryonia, Spongia Tosta"
+    },
+    "Food Poisoning": {
+        "symptoms": ["Nausea", "Vomiting", "Diarrhea", "Abdominal Pain", "Fever"],
+        "weight": 1.1,
+        "allopathic": "ORS, Antiemetics, Rest, Antibiotics (if bacterial)",
+        "homeopathic": "Arsenicum Album, Nux Vomica, Veratrum Album"
+    },
+    "Gastritis": {
+        "symptoms": ["Abdominal Pain", "Bloating", "Nausea", "Loss of Appetite", "Heartburn"],
+        "weight": 1.0,
+        "allopathic": "Antacids, PPIs, Diet modification",
+        "homeopathic": "Nux Vomica, Lycopodium, Carbo Veg"
+    },
+    "Heat Exhaustion": {
+        "symptoms": ["Fatigue", "Dizziness", "Sweating", "Headache", "Nausea"],
+        "weight": 0.9,
+        "allopathic": "Cooling down, Hydration, Electrolyte fluids",
+        "homeopathic": "Glonoinum, Belladonna, Natrum Mur"
+    },
+    "Irritable Bowel Syndrome": {
+        "symptoms": ["Abdominal Pain", "Bloating", "Diarrhea", "Constipation"],
+        "weight": 1.0,
+        "allopathic": "Antispasmodics, Dietary fiber, Stress management",
+        "homeopathic": "Colocynthis, Nux Vomica, Lycopodium"
 }
 
 # Extract unique symptom list
@@ -184,5 +213,6 @@ if st.button("Run Diagnostic", use_container_width=True):
             # --- Disclaimer note at bottom ---
             st.markdown("\n---")
             st.caption("This is a preliminary prediction. Please consult a medical professional for a confirmed diagnosis.")
+
 
 
