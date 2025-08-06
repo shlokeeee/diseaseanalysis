@@ -11,8 +11,8 @@ disease_profiles = {
         "homeopathic": "Oscillococcinum, Gelsemium, Bryonia"
     },
     "Cold": {
-        "symptoms": ["Sneezing", "Runny Nose", "Cough", "Sore Throat", "Mild Fatigue"],
-        "weight": 0.9,
+        "symptoms": ["Sneezing", "Runny Nose", "Cough", "Sore Throat", "Mild Fatigue", "Headache"],
+        "weight": 0.8,
         "allopathic": "Antihistamines, Decongestants, Cough Syrup",
         "homeopathic": "Aconite, Natrum Mur, Euphrasia"
     },
@@ -48,7 +48,7 @@ disease_profiles = {
     },
     "Migraine": {
         "symptoms": ["Severe Headache", "Nausea", "Sensitivity to Light", "Throbbing Pain"],
-        "weight": 0.8,
+        "weight": 0.7,
         "allopathic": "Ibuprofen, Sumatriptan, Rest",
         "homeopathic": "Belladonna, Natrum Mur, Glonoinum"
     },
@@ -57,6 +57,18 @@ disease_profiles = {
         "weight": 1.0,
         "allopathic": "ORS, Loperamide, Antiemetics",
         "homeopathic": "Arsenicum Album, Nux Vomica, Podophyllum"
+    },
+    "Tension Headache": {
+        "symptoms": ["Headache", "Neck Pain", "Mild Fatigue", "Stress"],
+        "weight": 0.6,
+        "allopathic": "Paracetamol, Rest, Hydration",
+        "homeopathic": "Nux Vomica, Gelsemium"
+    },
+    "Dehydration": {
+        "symptoms": ["Headache", "Fatigue", "Dry Mouth", "Dizziness"],
+        "weight": 0.5,
+        "allopathic": "ORS, Fluids, Electrolyte Rehydration",
+        "homeopathic": "China, Veratrum Album"
     }
 }
 
@@ -86,6 +98,8 @@ if st.button("Run Diagnostic", use_container_width=True):
         for disease, profile in disease_profiles.items():
             match_count = len(set(selected_symptoms).intersection(set(profile["symptoms"])))
             total_possible = len(profile["symptoms"])
+            if match_count == 0:
+                continue
             raw_score = (match_count / total_possible) * profile["weight"]
             scores[disease] = raw_score
 
