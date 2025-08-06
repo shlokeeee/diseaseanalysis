@@ -99,6 +99,24 @@ disease_profiles = {
         "weight": 1.3,
         "allopathic": "Surgical Removal, Painkillers, Antibiotics",
         "homeopathic": "Belladonna, Bryonia"
+    },
+    "Peptic Ulcer": {
+        "symptoms": ["Abdominal Pain", "Chest Pain", "Nausea", "Bloating", "Heartburn"],
+        "weight": 1.1,
+        "allopathic": "Proton Pump Inhibitors, Antacids, Antibiotics",
+        "homeopathic": "Nux Vomica, Carbo Veg, Robinia"
+    },
+    "Anxiety": {
+        "symptoms": ["Chest Pain", "Headache", "Fatigue", "Insomnia", "Shortness of Breath"],
+        "weight": 0.9,
+        "allopathic": "SSRIs, Beta Blockers, Therapy",
+        "homeopathic": "Argentum Nitricum, Aconite, Gelsemium"
+    },
+    "Irritable Bowel Syndrome": {
+        "symptoms": ["Abdominal Pain", "Bloating", "Diarrhea", "Constipation"],
+        "weight": 1.0,
+        "allopathic": "Antispasmodics, Laxatives, Dietary Changes",
+        "homeopathic": "Nux Vomica, Lycopodium, Colocynthis"
     }
 }
 
@@ -166,5 +184,3 @@ if st.button("Run Diagnostic", use_container_width=True):
             # --- Disclaimer note at bottom ---
             st.markdown("\n---")
             st.caption("This is a preliminary prediction. Please consult a medical professional for a confirmed diagnosis.")
-
-
