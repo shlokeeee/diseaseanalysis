@@ -147,8 +147,9 @@ disease_profiles = {
         "weight": 1.0,
         "allopathic": "Antispasmodics, Dietary fiber, Stress management",
         "homeopathic": "Colocynthis, Nux Vomica, Lycopodium"
-}
 
+    }
+}
 # Extract unique symptom list
 all_symptoms = sorted(set(symptom for profile in disease_profiles.values() for symptom in profile["symptoms"]))
 
@@ -213,6 +214,7 @@ if st.button("Run Diagnostic", use_container_width=True):
             # --- Disclaimer note at bottom ---
             st.markdown("\n---")
             st.caption("This is a preliminary prediction. Please consult a medical professional for a confirmed diagnosis.")
+
 
 
 
