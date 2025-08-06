@@ -98,8 +98,8 @@ if st.button("Run Diagnostic", use_container_width=True):
         for disease, profile in disease_profiles.items():
             match_count = len(set(selected_symptoms).intersection(set(profile["symptoms"])))
             total_possible = len(profile["symptoms"])
-            if match_count == 0:
-                continue
+            if match_count < 2:
+                continue  # Skip diseases with less than 2 matching symptoms
             raw_score = (match_count / total_possible) * profile["weight"]
             scores[disease] = raw_score
 
@@ -132,3 +132,4 @@ if st.button("Run Diagnostic", use_container_width=True):
             report += "\nNote: This is a preliminary prediction. Please consult a medical professional for a confirmed diagnosis."
 
             st.download_button("Download Diagnosis Report", report, file_name="diagnosis_report.txt")
+
