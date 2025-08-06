@@ -106,7 +106,7 @@ disease_profiles = {
 all_symptoms = sorted(set(symptom for profile in disease_profiles.values() for symptom in profile["symptoms"]))
 
 # --- Streamlit UI ---
-st.set_page_config(page_title="Accurate Disease Predictor", layout="wide")
+st.set_page_config(page_title="Disease Predictor", layout="wide")
 st.title("Symptom Checker & Health Advisor")
 st.markdown("Enter your symptoms below to get a medically-aligned prediction of possible diseases.")
 
@@ -166,4 +166,5 @@ if st.button("Run Diagnostic", use_container_width=True):
             # --- Disclaimer note at bottom ---
             st.markdown("\n---")
             st.caption("This is a preliminary prediction. Please consult a medical professional for a confirmed diagnosis.")
+
 
